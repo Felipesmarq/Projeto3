@@ -10,9 +10,13 @@ import lombok.NoArgsConstructor;
 @Getter
 @Setter
 @NoArgsConstructor
-public class Usuario extends User{
+public class Usuario{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idUser;
+
+    private String name_user;
+    private String password;
+
 }
