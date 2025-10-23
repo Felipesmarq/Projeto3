@@ -1,17 +1,18 @@
 package com.example.Projeto3.entities;
+
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
 
+
+@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 public class Usuario extends User{
-    long id_user;
 
-    public Feedback criarFeedback(){
-        Feedback feedback = new Feedback();
-
-        return feedback;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long idUser;
 }
