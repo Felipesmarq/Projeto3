@@ -50,6 +50,7 @@ public class FeedbackService {
             feedbackExistente.setTitulo(feedbackDetails.getTitulo());
             feedbackExistente.setMensagem(feedbackDetails.getMensagem());
             feedbackExistente.setCategoria(feedbackDetails.getCategoria());
+            feedbackExistente.setCurso(feedbackDetails.getCurso());
 
             return Optional.of(feedbackRepository.save(feedbackExistente));
         } else {

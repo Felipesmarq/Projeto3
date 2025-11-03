@@ -31,6 +31,9 @@ public class Feedback {
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
 
+    @Enumerated(EnumType.STRING)
+    private Curso curso;
+
     private String mensagem;
     private LocalDateTime data = LocalDateTime.now();
 
