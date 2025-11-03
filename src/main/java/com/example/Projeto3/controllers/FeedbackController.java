@@ -1,5 +1,6 @@
 package com.example.Projeto3.controllers;
 
+import com.example.Projeto3.entities.Categoria;
 import com.example.Projeto3.entities.Feedback;
 import com.example.Projeto3.services.FeedbackService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,6 +42,18 @@ public class FeedbackController {
         return feedbackService.getFeedbackById(id)
                 .map(ResponseEntity::ok) // Retorna 200 OK se encontrado
                 .orElse(ResponseEntity.notFound().build()); // Retorna 404 se não encontrado
+    }
+
+    // Endpoint para LER POR CATEGORIA -> /api/feedbacks/categoria/{categoria}
+    @GetMapping("/categoria/{categoria}")
+    public ResponseEntity<List<Feedback>> getFeedbacksByCategoria(@PathVariable Categoria categoria) {
+        List<Feedback> feedbacks = feedbackService.getFeedbacksByCategoria(categoria);
+
+        if (feedbacks == null || feedbacks.isEmpty()) {
+            return ResponseEntity.noContent().build(); // Retorna 204 se não houver resultados
+        }
+
+        return ResponseEntity.ok(feedbacks); // Retorna 200 OK com a lista
     }
 
     // Endpoint para ATUALIZAR (PUT) -> /api/feedbacks/{id}

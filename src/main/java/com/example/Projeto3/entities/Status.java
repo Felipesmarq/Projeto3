@@ -1,8 +1,7 @@
 package com.example.Projeto3.entities;
 
 public enum Status {
-    Finalizado,
-    Em_andamento,
+    Implementado,
     Em_analise,
     Pendente
 }

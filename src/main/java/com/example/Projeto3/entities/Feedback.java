@@ -1,6 +1,9 @@
 package com.example.Projeto3.entities;
 
 import java.time.LocalDateTime;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,13 +25,20 @@ public class Feedback {
 
     @ManyToOne
     @JoinColumn(name = "idUser")
+    @JsonManagedReference
     private Usuario usuario;
 
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
+
     private String mensagem;
     private LocalDateTime data = LocalDateTime.now();
 
     @Enumerated(EnumType.STRING)
-    private Status status;
+    private Status status = Status.Pendente;
+
+    @OneToMany(mappedBy = "feedback", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonManagedReference
+    private List<Comentario> comentarios;
+
 }

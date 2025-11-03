@@ -1,5 +1,6 @@
 package com.example.Projeto3.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,8 +20,10 @@ public class Comentario {
 
     private String titulo;
     private String menasagem;
+
     @ManyToOne
     @JoinColumn(name = "idFeedback")
+    @JsonBackReference
     private Feedback feedback;
 
     private LocalDateTime data;
