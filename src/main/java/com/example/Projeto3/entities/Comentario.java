@@ -18,8 +18,7 @@ public class Comentario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idComentario;
 
-    private String titulo;
-    private String menasagem;
+    private String mensagem;
 
     @ManyToOne
     @JoinColumn(name = "idFeedback")

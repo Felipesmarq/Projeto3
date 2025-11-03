@@ -33,6 +33,7 @@ public class FeedbackService {
         return feedbackRepository.findAll();
     }
 
+    // Obter feedbacks por categoria
     public List<Feedback> getFeedbacksByCategoria(Categoria categoria) {return feedbackRepository.findByCategoria(categoria);}
 
     // Obter um feedback por ID
@@ -40,7 +41,7 @@ public class FeedbackService {
         return feedbackRepository.findById(id);
     }
 
-    // Atualizar um feedback existente
+    // Editar um feedback existente
     public Optional<Feedback> updateFeedback(Long id, Feedback feedbackDetails) {
         Optional<Feedback> optionalFeedback = feedbackRepository.findById(id);
 
