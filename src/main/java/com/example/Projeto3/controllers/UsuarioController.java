@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/usuarios") // Define a URL base para este controller
+@CrossOrigin(origins = "*") // Permite requisições de qualquer front-end
 public class UsuarioController {
 
     private final UsuarioService usuarioService;
