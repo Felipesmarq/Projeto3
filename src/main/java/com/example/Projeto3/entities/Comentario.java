@@ -25,5 +25,5 @@ public class Comentario {
     @JsonBackReference
     private Feedback feedback;
 
-    private LocalDateTime data;
+    private LocalDateTime data = LocalDateTime.now();
 }

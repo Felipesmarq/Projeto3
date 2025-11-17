@@ -25,7 +25,6 @@ public class Feedback {
 
     @ManyToOne
     @JoinColumn(name = "idUser")
-    @JsonManagedReference
     private Usuario usuario;
 
     @Enumerated(EnumType.STRING)
