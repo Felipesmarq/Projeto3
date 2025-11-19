@@ -3,6 +3,7 @@ package com.example.Projeto3.entities;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -25,6 +26,7 @@ public class Feedback {
 
     @ManyToOne
     @JoinColumn(name = "idUser")
+    @JsonBackReference(value = "usuario-feedback")
     private Usuario usuario;
 
     @Enumerated(EnumType.STRING)
