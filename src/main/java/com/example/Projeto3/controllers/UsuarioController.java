@@ -59,4 +59,16 @@ public class UsuarioController {
             return ResponseEntity.notFound().build(); // Retorna 404 Not Found
         }
     }
+
+    // Endpoint para LOGIN (POST) -> /api/usuarios/login
+    @PostMapping("/login")
+    public ResponseEntity<Usuario> login(@RequestBody Usuario loginRequest) {
+        // O frontend pode enviar username OU email no campo "username" ou "email"
+        // Vamos assumir que "username" no JSON pode conter username ou email
+        String login = loginRequest.getUsername() != null ? loginRequest.getUsername() : loginRequest.getEmail();
+        
+        return usuarioService.login(login, loginRequest.getPassword())
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+    }
 }

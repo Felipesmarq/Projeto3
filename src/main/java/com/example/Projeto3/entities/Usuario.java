@@ -1,7 +1,6 @@
 package com.example.Projeto3.entities;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,11 +19,17 @@ public class Usuario{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idUser;
 
-    private String name_user;
+    @Column(nullable = false, unique = true)
+    private String username;
+    
+    @Column(nullable = false)
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
 
+    @Column(unique = true)
+    private String email;
+
     @OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL, orphanRemoval = true)
-    @JsonManagedReference(value = "usuario-feedback")
     private List<Feedback> feedbacks;
 
 }

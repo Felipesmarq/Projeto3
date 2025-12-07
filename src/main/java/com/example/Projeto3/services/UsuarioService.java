@@ -41,8 +41,9 @@ public class UsuarioService {
 
         if (optionalUsuario.isPresent()) {
             Usuario usuarioExistente = optionalUsuario.get();
-            usuarioExistente.setName_user(usuarioDetails.getName_user());
+            usuarioExistente.setUsername(usuarioDetails.getUsername());
             usuarioExistente.setPassword(usuarioDetails.getPassword()); // Lembre-se de criptografar!
+            usuarioExistente.setEmail(usuarioDetails.getEmail());
 
             return Optional.of(usuarioRepository.save(usuarioExistente));
         } else {
@@ -57,5 +58,24 @@ public class UsuarioService {
             return true;
         }
         return false; // Não encontrou o usuário para deletar
+    }
+
+    // Autenticar usuário
+    public Optional<Usuario> login(String login, String password) {
+        // Tenta achar por username
+        Optional<Usuario> userOpt = usuarioRepository.findByUsername(login);
+        if (userOpt.isEmpty()) {
+            // Tenta achar por email
+            userOpt = usuarioRepository.findByEmail(login);
+        }
+
+        if (userOpt.isPresent()) {
+            Usuario user = userOpt.get();
+            // Em produção, use BCrypt ou similar para comparar hashes!
+            if (user.getPassword().equals(password)) {
+                return Optional.of(user);
+            }
+        }
+        return Optional.empty();
     }
 }

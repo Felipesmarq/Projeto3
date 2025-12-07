@@ -44,6 +44,16 @@ public class FeedbackController {
                 .orElse(ResponseEntity.notFound().build()); // Retorna 404 se não encontrado
     }
 
+    // Endpoint para LER POR USUARIO (GET) -> /api/feedbacks/usuario/{userId}
+    @GetMapping("/usuario/{userId}")
+    public ResponseEntity<List<Feedback>> getFeedbacksByUserId(@PathVariable Long userId) {
+        List<Feedback> feedbacks = feedbackService.getFeedbacksByUserId(userId);
+        if (feedbacks == null || feedbacks.isEmpty()) {
+            return ResponseEntity.noContent().build(); // Retorna 204 se vazio
+        }
+        return ResponseEntity.ok(feedbacks);
+    }
+
     // Endpoint para LER POR CATEGORIA -> /api/feedbacks/categoria/{categoria}
     @GetMapping("/categoria/{categoria}")
     public ResponseEntity<List<Feedback>> getFeedbacksByCategoria(@PathVariable Categoria categoria) {
@@ -72,5 +82,27 @@ public class FeedbackController {
         } else {
             return ResponseEntity.notFound().build(); // 404 se não encontrado
         }
+    }
+
+    // Endpoint para VOTAR (POST) -> /api/feedbacks/{id}/vote?userId=1
+    @PostMapping("/{id}/vote")
+    public ResponseEntity<Feedback> voteFeedback(@PathVariable Long id, @RequestParam Long userId) {
+        return feedbackService.voteFeedback(id, true, userId) // Always pass true, service handles toggle
+                .map(ResponseEntity::ok)
+                .orElse(ResponseEntity.notFound().build());
+    }
+
+    // Endpoint para obter votos do usuário -> /api/feedbacks/votes/{userId}
+    @GetMapping("/votes/{userId}")
+    public ResponseEntity<List<Long>> getUserVotes(@PathVariable Long userId) {
+        List<Long> votedIds = feedbackService.getVotedFeedbackIds(userId);
+        return ResponseEntity.ok(votedIds);
+    }
+
+    // Endpoint para ranking (Top 3 mais votados) -> /api/feedbacks/ranking
+    @GetMapping("/ranking")
+    public ResponseEntity<List<Feedback>> getRankingFeedbacks() {
+        List<Feedback> ranking = feedbackService.getTopFeedbacks();
+        return ResponseEntity.ok(ranking);
     }
 }

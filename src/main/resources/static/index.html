@@ -1,297 +1,198 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projeto 3 - Sebrae</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        h1 {
-            color: #0066cc;
-            text-align: center;
-        }
-        .section {
-            margin-bottom: 30px;
-            padding: 15px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
-        input[type="text"],
-        input[type="password"] {
-            width: 100%;
-            padding: 8px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-        button {
-            background-color: #0066cc;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0052a3;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid #ddd;
-        }
-        th, td {
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        .actions {
-            display: flex;
-            gap: 5px;
-        }
-        .btn-edit {
-            background-color: #ffa500;
-        }
-        .btn-delete {
-            background-color: #ff0000;
-        }
-    </style>
+    <title>Fala Sebrae - Opine. Construa. Empreenda.</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Font Awesome for Icons (Optional, using text chars if not available) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <img src="images/sebrae.png" alt="Sebrae" style="height: 120px; position: absolute; top: 60%; transform: translateY(-50%); left: 20px;">
+        </div>
+        <nav class="nav-links" style="margin-left: 180px;">
+            <a href="index.html">Fala Sebrae</a>
+            <a href="meus-feedbacks.html">Meus Feedbacks</a>
+            <a href="#">Gestores Públicos</a>
+            <a href="#">Empreendedores</a>
+            <a href="#">Atendimento</a>
+        </nav>
+        <div id="auth-btn-container">
+            <a href="login.html" class="btn-primary">Login / Cadastro</a>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <div class="hero-banner">
+        <img src="images/pessoas.jpg" alt="Pessoas reunidas em reunião" class="hero-bg">
+        <div class="hero-overlay">
+            <div class="hero-logo">
+                <img src="images/logo.png" alt="Fala Sebrae Logo">
+            </div>
+            <div class="hero-text">
+                <h1>
+                    <span class="text-opine">Opine.</span><br>
+                    <span class="text-construa">Construa.</span><br>
+                    <span class="text-empreenda">Empreenda.</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
-        <h1>Projeto 3 - Sebrae</h1>
         
-        <div class="nav-links" style="margin-bottom: 20px; text-align: center;">
-            <a href="index.html" style="margin-right: 20px; color: #0066cc; text-decoration: none; font-weight: bold;">Gerenciar Usuários</a>
-            <a href="feedback.html" style="color: #0066cc; text-decoration: none; font-weight: bold;">Gerenciar Feedbacks</a>
+    <!-- Ranking Semanal -->
+    <section class="ranking-section">
+        <div class="ranking-header">
+            <h2><i class="fas fa-trophy"></i> Ranking Semanal</h2>
+        </div>
+        <div class="ranking-container" id="ranking-list">
+            <!-- Conteúdo será carregado via JavaScript -->
+            <p style="text-align:center; width:100%; color: white;">Carregando ranking...</p>
+        </div>
+    </section>
+
+    <!-- Atualizações Semanais -->
+    <section class="updates-section">
+        <h2 style="color: #333; margin-bottom: 20px;"><i class="far fa-bell"></i> Atualizações Semanais</h2>
+        <div class="updates-container">
+            <div class="update-card">
+                <h4>Novo sistema de notificações implementado</h4>
+                <p>Agora você receberá atualizações em tempo real sobre o status dos seus feedbacks.</p>
+                <div class="card-footer">
+                    <span><i class="far fa-clock"></i> 2min</span>
+                    <button class="arrow-btn-blue"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="update-card">
+                <h4>Novo sistema de notificações implementado</h4>
+                <p>Agora você receberá atualizações em tempo real sobre o status dos seus feedbacks.</p>
+                <div class="card-footer">
+                    <span><i class="far fa-clock"></i> 5min</span>
+                    <button class="arrow-btn-blue"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="update-card">
+                <h4>Novo sistema de notificações implementado</h4>
+                <p>Agora você receberá atualizações em tempo real sobre o status dos seus feedbacks.</p>
+                <div class="card-footer">
+                    <span><i class="far fa-clock"></i> 3min</span>
+                    <button class="arrow-btn-blue"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mural de Feedbacks -->
+    <section class="mural-section">
+        <div class="mural-title">
+            <h2><i class="far fa-comments"></i> Mural de Feedbacks</h2>
         </div>
         
-        <div class="section">
-            <h2>Teste da API</h2>
-            <button id="testHello">Testar Endpoint Hello</button>
-            <div id="helloResult" style="margin-top: 10px;"></div>
-        </div>
+        <div class="mural-container">
+            <div class="mural-controls">
+                <div class="filters">
+                    <button class="filter-btn active" data-category="all">Todos</button>
+                    <button class="filter-btn" data-category="Conteudo">Conteúdo</button>
+                    <button class="filter-btn" data-category="Plataforma">Plataforma</button>
+                    <button class="filter-btn" data-category="Instrutor">Instrutor</button>
+                    <button class="filter-btn" data-category="Atendimento">Atendimento</button>
+                </div>
+                <button class="btn-avalie" onclick="openModal()">+ Avalie Agora</button>
+            </div>
 
-        <div class="section">
-            <h2>Cadastrar Usuário</h2>
-            <form id="userForm">
-                <div class="form-group">
-                    <label for="userName">Nome:</label>
-                    <input type="text" id="userName" required>
-                </div>
-                <div class="form-group">
-                    <label for="userPassword">Senha:</label>
-                    <input type="password" id="userPassword" required>
-                </div>
-                <button type="submit">Cadastrar</button>
-            </form>
+            <div id="feedback-list" class="feedback-list">
+                <!-- Feedbacks will be loaded here by script.js -->
+                <p style="text-align:center; color: #555;">Carregando feedbacks...</p>
+            </div>
         </div>
+    </section>
 
-        <div class="section">
-            <h2>Lista de Usuários</h2>
-            <button id="loadUsers">Carregar Usuários</button>
-            <table id="usersTable" style="margin-top: 15px;">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Nome</th>
-                        <th>Ações</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Dados serão carregados aqui -->
-                </tbody>
-            </table>
-        </div>
+    </div>
 
-        <div class="section" id="editSection" style="display: none;">
-            <h2>Editar Usuário</h2>
-            <form id="editForm">
-                <input type="hidden" id="editUserId">
-                <div class="form-group">
-                    <label for="editUserName">Nome:</label>
-                    <input type="text" id="editUserName" required>
+    <!-- Modal Avalie Agora -->
+    <div id="feedbackModal" class="modal">
+        <div class="modal-content custom-modal">
+            <div class="modal-top-bar">
+                <span class="back-link" onclick="closeModal()"><i class="fas fa-chevron-left"></i> Voltar</span>
+            </div>
+            
+            <div class="modal-header-custom">
+                <i class="far fa-comment-alt"></i>
+                <h2>Compartilhe seu feedback</h2>
+            </div>
+
+            <form id="feedbackForm" class="new-feedback-form">
+                
+                <div class="nps-section">
+                    <h3>Avalie sua experiência</h3>
+                    <p>De 0 a 10, o quanto você recomendaria este curso?</p>
+                    <div class="nps-options">
+                        <button type="button" class="nps-btn" data-value="0">0</button>
+                        <button type="button" class="nps-btn" data-value="1">1</button>
+                        <button type="button" class="nps-btn" data-value="2">2</button>
+                        <button type="button" class="nps-btn" data-value="3">3</button>
+                        <button type="button" class="nps-btn" data-value="4">4</button>
+                        <button type="button" class="nps-btn" data-value="5">5</button>
+                        <button type="button" class="nps-btn" data-value="6">6</button>
+                        <button type="button" class="nps-btn" data-value="7">7</button>
+                        <button type="button" class="nps-btn" data-value="8">8</button>
+                        <button type="button" class="nps-btn" data-value="9">9</button>
+                        <button type="button" class="nps-btn" data-value="10">10</button>
+                    </div>
+                    <div class="nps-legend">
+                        <span>Muito improvável</span>
+                        <span>Muito provável</span>
+                    </div>
                 </div>
+
                 <div class="form-group">
-                    <label for="editUserPassword">Nova Senha:</label>
-                    <input type="password" id="editUserPassword" placeholder="Deixe em branco para manter a senha atual">
+                    <label for="titulo">Título</label>
+                    <input type="text" id="titulo" placeholder="Título do seu feedback" required>
                 </div>
-                <button type="submit">Atualizar</button>
-                <button type="button" id="cancelEdit">Cancelar</button>
+
+                <div class="form-group">
+                    <label for="conteudo">Deixe seu comentário/feedback</label>
+                    <textarea id="conteudo" rows="5" placeholder="Conte-nos sobre sua experiência, sugestões e problemas..." required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="categoria">Categoria</label>
+                    <select id="categoria" required>
+                        <option value="" disabled selected>Selecione uma categoria</option>
+                        <option value="Conteudo">Conteúdo</option>
+                        <option value="Plataforma">Plataforma</option>
+                        <option value="Instrutor">Instrutor</option>
+                        <option value="Atendimento">Atendimento</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="curso">Curso/Serviço</label>
+                    <select id="curso" required>
+                        <option value="" disabled selected>Selecione um curso</option>
+                        <option value="Gestao_Financeira">Gestão Financeira</option>
+                        <option value="Marketing_Digital">Marketing Digital</option>
+                        <option value="Empreendedorismo">Empreendedorismo</option>
+                        <option value="Gestao_de_Pessoas">Gestão de Pessoas</option>
+                        <option value="Vendas">Vendas</option>
+                        <option value="Inovacao">Inovação</option>
+                    </select>
+                </div>
+
+                <div class="modal-footer-custom">
+                    <button type="button" class="btn-cancel" onclick="closeModal()"><i class="far fa-times-circle"></i> Cancelar</button>
+                    <button type="submit" class="btn-publish"><i class="fas fa-plus"></i> Publicar Feedback</button>
+                </div>
             </form>
         </div>
     </div>
 
-    <script>
-        // Testar o endpoint Hello
-        document.getElementById('testHello').addEventListener('click', async () => {
-            try {
-                const response = await fetch('/hello?name=Usuário');
-                const data = await response.text();
-                document.getElementById('helloResult').textContent = data;
-            } catch (error) {
-                console.error('Erro:', error);
-                document.getElementById('helloResult').textContent = 'Erro ao testar o endpoint';
-            }
-        });
-
-        // Cadastrar usuário
-        document.getElementById('userForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const userName = document.getElementById('userName').value;
-            const userPassword = document.getElementById('userPassword').value;
-
-            try {
-                const response = await fetch('/api/usuarios', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        name_user: userName,
-                        password: userPassword
-                    })
-                });
-
-                if (response.ok) {
-                    alert('Usuário cadastrado com sucesso!');
-                    document.getElementById('userForm').reset();
-                    loadUsers(); // Recarregar a lista de usuários
-                } else {
-                    alert('Erro ao cadastrar usuário');
-                }
-            } catch (error) {
-                console.error('Erro:', error);
-                alert('Erro ao cadastrar usuário');
-            }
-        });
-
-        // Carregar usuários
-        async function loadUsers() {
-            try {
-                const response = await fetch('/api/usuarios');
-                const users = await response.json();
-                const tbody = document.querySelector('#usersTable tbody');
-                tbody.innerHTML = '';
-
-                users.forEach(user => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${user.idUser}</td>
-                        <td>${user.name_user}</td>
-                        <td class="actions">
-                            <button class="btn-edit" onclick="editUser(${user.idUser}, '${user.name_user}')">Editar</button>
-                            <button class="btn-delete" onclick="deleteUser(${user.idUser})">Excluir</button>
-                        </td>
-                    `;
-                    tbody.appendChild(row);
-                });
-            } catch (error) {
-                console.error('Erro:', error);
-                alert('Erro ao carregar usuários');
-            }
-        }
-
-        document.getElementById('loadUsers').addEventListener('click', loadUsers);
-
-        // Editar usuário
-        function editUser(id, name) {
-            document.getElementById('editUserId').value = id;
-            document.getElementById('editUserName').value = name;
-            document.getElementById('editUserPassword').value = '';
-            document.getElementById('editSection').style.display = 'block';
-        }
-
-        document.getElementById('cancelEdit').addEventListener('click', () => {
-            document.getElementById('editSection').style.display = 'none';
-        });
-
-        document.getElementById('editForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const userId = document.getElementById('editUserId').value;
-            const userName = document.getElementById('editUserName').value;
-            const userPassword = document.getElementById('editUserPassword').value;
-
-            // Preparar dados para atualização
-            const userData = {
-                name_user: userName
-            };
-
-            // Incluir senha apenas se foi fornecida
-            if (userPassword) {
-                userData.password = userPassword;
-            }
-
-            try {
-                const response = await fetch(`/api/usuarios/${userId}`, {
-                    method: 'PUT',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(userData)
-                });
-
-                if (response.ok) {
-                    alert('Usuário atualizado com sucesso!');
-                    document.getElementById('editSection').style.display = 'none';
-                    loadUsers(); // Recarregar a lista de usuários
-                } else {
-                    alert('Erro ao atualizar usuário');
-                }
-            } catch (error) {
-                console.error('Erro:', error);
-                alert('Erro ao atualizar usuário');
-            }
-        });
-
-        // Excluir usuário
-        async function deleteUser(id) {
-            if (confirm('Tem certeza que deseja excluir este usuário?')) {
-                try {
-                    const response = await fetch(`/api/usuarios/${id}`, {
-                        method: 'DELETE'
-                    });
-
-                    if (response.ok) {
-                        alert('Usuário excluído com sucesso!');
-                        loadUsers(); // Recarregar a lista de usuários
-                    } else {
-                        alert('Erro ao excluir usuário');
-                    }
-                } catch (error) {
-                    console.error('Erro:', error);
-                    alert('Erro ao excluir usuário');
-                }
-            }
-        }
-
-        // Carregar usuários ao iniciar a página
-        window.addEventListener('load', loadUsers);
-    </script>
+    <script src="js/script.js"></script>
 </body>
 </html>

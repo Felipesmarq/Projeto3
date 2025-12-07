@@ -3,7 +3,8 @@ package com.example.Projeto3.entities;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -26,7 +27,7 @@ public class Feedback {
 
     @ManyToOne
     @JoinColumn(name = "idUser")
-    @JsonBackReference(value = "usuario-feedback")
+    @JsonIgnoreProperties({"feedbacks", "password"})
     private Usuario usuario;
 
     @Enumerated(EnumType.STRING)
@@ -41,8 +42,17 @@ public class Feedback {
     @Enumerated(EnumType.STRING)
     private Status status = Status.Pendente;
 
+    private int likes = 0; // New field for votes
+
+    private int nps;
+
+
     @OneToMany(mappedBy = "feedback", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonManagedReference
     private List<Comentario> comentarios;
+
+    @OneToMany(mappedBy = "feedback", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JsonIgnore // Prevent infinite recursion or huge payload, we just need cascade delete
+    private List<Voto> votos;
 
 }

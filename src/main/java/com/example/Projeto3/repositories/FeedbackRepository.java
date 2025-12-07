@@ -10,4 +10,6 @@ import java.util.List;
 @Repository
 public interface FeedbackRepository extends JpaRepository<Feedback, Long> {
     List<Feedback> findByCategoria(Categoria categoria);
+    List<Feedback> findByUsuarioIdUser(Long idUser);
+    List<Feedback> findTop3ByOrderByLikesDesc();
 }

@@ -1,6 +1,7 @@
 package com.example.Projeto3.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,6 +25,11 @@ public class Comentario {
     @JoinColumn(name = "idFeedback")
     @JsonBackReference
     private Feedback feedback;
+
+    @ManyToOne
+    @JoinColumn(name = "idUser")
+    @JsonIgnoreProperties({"feedbacks", "password", "email"}) // Avoid infinite recursion and hide sensitive data
+    private Usuario usuario;
 
     private LocalDateTime data = LocalDateTime.now();
 }

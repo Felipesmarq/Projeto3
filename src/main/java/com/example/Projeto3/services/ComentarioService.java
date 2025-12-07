@@ -1,7 +1,6 @@
 package com.example.Projeto3.services;
 
 import com.example.Projeto3.entities.Comentario;
-import com.example.Projeto3.entities.Feedback;
 import com.example.Projeto3.repositories.ComentarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +37,20 @@ public class ComentarioService {
         } else {
             return Optional.empty();
         }
+    }
+
+    // Deletar comentário (se for dono)
+    public boolean deleteComentario(Long id, Long userId) {
+        Optional<Comentario> opt = comentarioRepository.findById(id);
+        if (opt.isPresent()) {
+            Comentario c = opt.get();
+            // Check if user is owner
+            if (c.getUsuario().getIdUser() == userId) {
+                comentarioRepository.deleteById(id);
+                return true;
+            }
+        }
+        return false;
     }
 
 }
