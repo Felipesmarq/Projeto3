@@ -1,5 +1,8 @@
 # FalaSEBRAE!
 
+🔗 Repositório principal: [Projeto3](https://github.com/Felipesmarq/Projeto3)  
+🔗 Repositório de deploy: [Projeto3Deploy](https://github.com/jaas5/Projeto3Deploy)
+
 Repositório principal da aplicação, contendo todo o código-fonte, regras de negócio, interfaces e componentes necessários para desenvolvimento e execução do projeto.
 
 ## 📌 Sobre o Projeto
