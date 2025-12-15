@@ -1,7 +1,14 @@
 # FalaSEBRAE!
 
-🔗 Repositório principal: [Projeto3](https://github.com/Felipesmarq/Projeto3)  
+🔗 Repositório principal: [Projeto3](https://github.com/Felipesmarq/Projeto3)
+
 🔗 Repositório de deploy: [Projeto3Deploy](https://github.com/jaas5/Projeto3Deploy)
+
+🔗Sites: [Google Sites](https://sites.google.com/cesar.school/grupo-g2?usp=sharing)
+
+🔗Deploy: [Link](https://projeto3deploy-production.up.railway.app/)
+
+🔗Railway: [Link](https://railway.com/invite/lqlamfVeHzn)
 
 Repositório principal da aplicação, contendo todo o código-fonte, regras de negócio, interfaces e componentes necessários para desenvolvimento e execução do projeto.
 
