@@ -26,7 +26,7 @@ Este repositório reúne a implementação completa da solução, incluindo lóg
 ## 🛠 Como Executar
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/SEU-USUARIO/Projeto3.git
+   git clone https://github.com/Felipesmarq/Projeto3.git
    
 2. Acesse a pasta:
    ```bash
